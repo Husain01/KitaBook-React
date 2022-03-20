@@ -1,0 +1,58 @@
+@import url("https://neu-ui-cl.netlify.app/css/components.css");
+
+:root{
+  --primary-color:#4F2F05;
+  --bg-color:#F2DCB1;
+  --normal-inset-shadow: inset 5px 5px 10px #cebb96, inset -5px -5px 10px #fffdcc;
+  --secondary-color:#9C7038;
+  --active-color:#9C7038;
+  --primary-inset-shadow: inset 5px 5px 10px #372104, inset -5px -5px 10px #673d07;
+}
+
+.normal-shadow {
+  box-shadow: 5px 5px 10px #cebb96, -5px -5px 10px #fffdcc;
+}
+
+
+
+.navbar{
+  position: sticky;
+  top: 0;
+  padding: 2rem;
+  background-color: var(--bg-color);
+  z-index: 2;
+}
+
+.main-content{
+  padding: 1rem;
+  border-radius: 10px;
+  box-shadow: var(--normal-inset-shadow);
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* Cards  */
+.product-cards{
+  display: grid;
+  grid-template-columns: repeat(auto-fill ,minmax(18rem,1fr));
+  grid-auto-columns: auto;
+  grid-gap: 2rem;
+  width: 100%;
+  justify-items: center;
+}
+
+
+.card{
+  width: 18rem;
+  margin: 0;
+}
+
+.product-img{
+  width: 100%;
+  height: 18rem;
+  padding-top: 1rem;
+}
+
+.product-img img {
+  object-fit: contain;
+}
