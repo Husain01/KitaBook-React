@@ -1,10 +1,13 @@
+import { Route, Routes } from "react-router-dom";
+import Mockman from "mockman-js";
 import "./App.css";
-import logo from "./logo.png";
 
 function App() {
   return (
     <div className="App">
-
+      <Routes>
+        <Route path="/mock" element={<Mockman/>}/>
+      </Routes>
     </div>
   );
 }
