@@ -6,6 +6,7 @@ import ProductCard from "./components/ProductCard/ProductCard";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import CategoryCard from "./components/CategoryCard/CategoryCard";
+import HeroImg from "./components/HeroImg/HeroImg";
 
 function App() {
   const [products, setProducts] = useState([])
@@ -34,15 +35,17 @@ function App() {
     return (
     <div className="App main-container">
         <Navbar></Navbar> 
-        <div className="categories-card">
+        {/* <div className="main-content">
+        <HeroImg/>
+        </div> */}
+        {/* <div className="categories-card">
         <CategoryCard/>
-        </div>
+        </div> */}
       <Routes>
         {/* <Route path="/" element = {<ProductCard 
         product = {products[0]}
         />}/> */}
         
-        {/* <Route path="/" element = {<CategoryCard/>}/> */}
         <Route path="/mock" element={<Mockman/>}/>
       </Routes>
     </div>
