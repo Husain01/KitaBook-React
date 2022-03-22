@@ -1,0 +1,29 @@
+.footer{
+    margin-top: 2rem;
+    align-items: center;
+}
+
+
+
+.copyright{
+    width: 18rem;
+    font-size: 2.5rem;
+}
+
+.footer-icons{
+    display: flex;
+    gap: 1rem;
+}
+
+.made-by{
+    width: 18rem;
+}
+
+.made-by h6{
+    margin-left: auto;
+    width: fit-content;
+}
+
+.img-landing-mob{
+    display: none;
+}
