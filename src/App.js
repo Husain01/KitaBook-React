@@ -8,6 +8,7 @@ import axios from "axios";
 import CategoryCard from "./components/CategoryCard/CategoryCard";
 import HeroImg from "./components/HeroImg/HeroImg";
 import CartCard from "./components/CartCard/CartCard";
+import Home from "./pages/Home/Home";
 
 function App() {
   const [products, setProducts] = useState([])
@@ -36,7 +37,7 @@ function App() {
     return (
     <div className="App main-container">
         <Navbar></Navbar> 
-        <CartCard/>
+        {/* <CartCard/> */}
         {/* <div className="main-content">
         <HeroImg/>
         </div> */}
@@ -47,6 +48,8 @@ function App() {
         {/* <Route path="/" element = {<ProductCard 
         product = {products[0]}
         />}/> */}
+        <Route path="/" element = {<Home/>}/>
+        <Route path="/home" element = {<Home/>}/>
         
         <Route path="/mock" element={<Mockman/>}/>
       </Routes>
