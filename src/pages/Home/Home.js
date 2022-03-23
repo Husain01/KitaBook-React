@@ -20,14 +20,13 @@ const Home = () => {
     }
   }, [])
   return (
-    <div className="content-container">
+    
         <div className="main-content">
             <HeroImg/>
             <div className="categories-card">
                 <CategoryCard  categories={categories}/>
             </div>
         </div>
-    </div>
   )
 }
 

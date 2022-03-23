@@ -39,14 +39,15 @@ function App() {
     <div className="App main-container">
         <Navbar></Navbar> 
         {/* <CartCard/> */}
-        <CartCard/>
-        <Footer/>
+        {/* <CartCard/> */}
         {/* <div className="main-content">
         <HeroImg/>
         </div> */}
         {/* <div className="categories-card">
         <CategoryCard/>
         </div> */}
+        <div className="content-container">
+
       <Routes>
         {/* <Route path="/" element = {<ProductCard 
         product = {products[0]}
@@ -56,6 +57,9 @@ function App() {
         
         <Route path="/mock" element={<Mockman/>}/>
       </Routes>
+      <Footer/>
+      </div>
+
     </div>
   );
 }
