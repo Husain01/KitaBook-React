@@ -10,6 +10,7 @@ import HeroImg from "./components/HeroImg/HeroImg";
 import CartCard from "./components/CartCard/CartCard";
 import Home from "./pages/Home/Home";
 import Footer from "./components/Footer/Footer";
+import Product from "./pages/Product/Product";
 
 function App() {
   const [products, setProducts] = useState([])
@@ -54,10 +55,10 @@ function App() {
         />}/> */}
         <Route path="/" element = {<Home/>}/>
         <Route path="/home" element = {<Home/>}/>
-        
+        <Route path='/products' element = {<Product/>}/>
         <Route path="/mock" element={<Mockman/>}/>
       </Routes>
-      <Footer/>
+      
       </div>
 
     </div>

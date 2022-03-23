@@ -4,6 +4,7 @@ import CategoryCard from '../../components/CategoryCard/CategoryCard'
 import HeroImg from '../../components/HeroImg/HeroImg'
 import { useEffect, useState } from "react";
 import axios from 'axios';
+import Footer from '../../components/Footer/Footer';
 
 
 const Home = () => {
@@ -20,13 +21,15 @@ const Home = () => {
     }
   }, [])
   return (
-    
+    <div className="content-container">
         <div className="main-content">
             <HeroImg/>
             <div className="categories-card">
                 <CategoryCard  categories={categories}/>
             </div>
         </div>
+        <Footer/>
+    </div>
   )
 }
 
