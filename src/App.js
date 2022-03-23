@@ -8,6 +8,7 @@ import axios from "axios";
 import CategoryCard from "./components/CategoryCard/CategoryCard";
 import HeroImg from "./components/HeroImg/HeroImg";
 import CartCard from "./components/CartCard/CartCard";
+import Footer from "./components/Footer/Footer";
 
 function App() {
   const [products, setProducts] = useState([])
@@ -37,6 +38,7 @@ function App() {
     <div className="App main-container">
         <Navbar></Navbar> 
         <CartCard/>
+        <Footer/>
         {/* <div className="main-content">
         <HeroImg/>
         </div> */}
