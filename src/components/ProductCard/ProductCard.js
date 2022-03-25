@@ -6,7 +6,7 @@ const ProductCard = ({product}) => {
   return (
     <div class="card card-ecom normal-shadow">
                   <div class="product-img">
-                    <img src="https://images-na.ssl-images-amazon.com/images/I/41+grDTP2FL._SY344_BO1,204,203,200_.jpg" alt="" />
+                    <img src={product.image} alt="" />
                     <div class="card-alt-badge normal-shadow">{product.badge}</div>
                     <button class="alt-wishlist normal-shadow">
                       <i class="far fa-heart"></i>
