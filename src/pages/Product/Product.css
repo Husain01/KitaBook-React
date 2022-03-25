@@ -1,8 +1,6 @@
 @import url(../../App.css);
 
-.content-container{
-    flex-direction: row;
-}
+
 .aside{
     flex: 0 0 16rem;
     position: sticky;

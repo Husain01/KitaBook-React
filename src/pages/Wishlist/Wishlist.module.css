@@ -1,0 +1,14 @@
+/* @import url(../../App.css); */
+.wishlist-heading{
+    width: 100%;
+    text-align: center;
+    margin:  1rem 0;
+}
+
+.main-content{
+    padding: 2rem;
+}
+
+.content-container{
+    flex-direction: column;
+}

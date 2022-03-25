@@ -8,6 +8,7 @@ import axios from "axios";
 import Home from "./pages/Home/Home";
 import Product from "./pages/Product/Product";
 import Footer from "./components/Footer/Footer";
+import Wishlist from "./pages/Wishlist/Wishlist";
 
 function App() {
   // const [products, setProducts] = useState([])
@@ -44,7 +45,7 @@ function App() {
         {/* <div className="categories-card">
         <CategoryCard/>
         </div> */}
-        <div className="content-container">
+        
 
       <Routes>
         {/* <Route path="/" element = {<ProductCard 
@@ -53,10 +54,10 @@ function App() {
         <Route path="/" element = {<Home/>}/>
         <Route path="/home" element = {<Home/>}/>
         <Route path='/products' element = {<Product/>}/>
+        <Route path="/wishlist" element = {<Wishlist/>}/>
         <Route path="/mock" element={<Mockman/>}/>
       </Routes>
       
-      </div>
 
     </div>
   );

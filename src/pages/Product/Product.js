@@ -13,7 +13,7 @@ const Product = () => {
     try {
       (async () => {
         const res = await axios.get('api/products')
-        console.log( res.data.products)
+        console.log(res.data.products)
         setProducts(res.data.products)
       })();
     } catch (error) {
@@ -22,25 +22,27 @@ const Product = () => {
   }, [])
   return (
     <>
-    <Filter/>
-    <main className={`main-content ${ProductCSS["main-content"]}`}>
-    <div className='product-listing'>
-      <div className='products-header'>
-        <h3>Showing All Products</h3>
-        <span>(Showing {products.length} products)</span>
+      <div className={`content-container ${ProductCSS['content-container']}`}>
+      <Filter />
+        <main className={`main-content ${ProductCSS["main-content"]}`}>
+          <div className='product-listing'>
+            <div className='products-header'>
+              <h3>Showing All Products</h3>
+              <span>(Showing {products.length} products)</span>
+            </div>
+            <div className='product-cards'>
+              {
+                products && products.map((info) => {
+                  console.log(info);
+                  return <ProductCard product={info} />
+                  // console.log(products);  
+                })}
+            </div>
+          </div>
+        </main>
       </div>
-      <div className='product-cards'>
-        {
-        products && products.map((info)=>{
-          console.log(info);
-           return <ProductCard  product={info}/>
-// console.log(products);  
-        })}
-      </div>
-    </div>
-    </main>
     </>
-    )
+  )
 }
 
 export default Product

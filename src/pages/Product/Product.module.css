@@ -8,3 +8,7 @@
 .product-listing{
     padding: 2rem;
 }
+
+.content-container{
+    flex-direction: row;
+}
