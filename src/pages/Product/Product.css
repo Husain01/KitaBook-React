@@ -3,3 +3,137 @@
 .content-container{
     flex-direction: row;
 }
+.aside{
+    flex: 0 0 16rem;
+    position: sticky;
+    top: 10rem;
+    height: fit-content;
+    margin-right: 2rem;
+}
+
+.side-heading{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.side-heading p{
+    cursor: pointer;
+}
+
+.range-slider input{
+    height: 10px;
+    width: 80%;
+    -webkit-appearance: none;
+    outline: none;
+    box-shadow: var(--normal-inset-shadow);
+    border-radius: 5px;
+}
+
+.range-slider input::-webkit-slider-thumb{
+    -webkit-appearance: none;
+  height: 1.5rem;
+  width: 1.5rem;
+  border: 1px solid #cebb96;
+  border-radius: 50%;
+  background: var(--bg-color);
+  cursor: pointer;
+  /* margin-top: -14px; You need to specify a margin in Chrome, but in Firefox and IE it is automatic */
+  box-shadow: 5px 5px 10px #cebb96, -5px -5px 10px #fffdcc;
+}
+
+.range-slider input::-webkit-slider-thumb:hover{
+    border: 1px solid #fffdcc;
+}
+
+/* for checkbox  */
+
+.options-input{
+    display: flex;
+    column-gap: .5rem;
+    align-items: center;
+    width: fit-content;
+}
+
+.checkbox-input{
+    appearance: none;
+    -webkit-appearance: none;
+    height: 1rem;
+    width: 1rem;
+    cursor: pointer;
+    background-color: var(--bg-color);
+    border: 1px solid var(--primary-color);
+    border-radius: 3px;
+    box-shadow: var(--normal-inset-shadow);
+    margin-bottom: .3rem;
+}
+
+.checkbox-input:after{
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    content:"\f00c";
+    display: none;
+}
+
+.checkbox-input:checked:after{
+    display: inline-block;
+}
+
+.check-desc{
+    cursor: pointer;
+}
+
+/* For Radio Buttons */
+
+
+.radiomark{
+    appearance: none;
+    -webkit-appearance: none;
+    width: 1.4rem;
+    height: 1.4rem;
+    border: 2px solid var(--primary-color);
+    border-radius: 50%;
+    margin-bottom: .3rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.radiomark:after{
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    content:"\f111";
+    height: calc(100% - 4px);
+    width: calc(100% - 6px);
+    display: none;
+}
+
+.radiomark:checked:after{
+    display: inline-block;
+}
+
+/* Main Content  */
+
+
+
+.products-header{
+    display: flex;
+    align-items: center;
+    column-gap: 1rem;
+}
+
+.product-listing{
+    width: 100%;
+    padding: 2rem;
+}
+
+
+
+
+/* Changes */
+
+
+.product-content{
+    margin-bottom: 0;
+}

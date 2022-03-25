@@ -5,15 +5,12 @@ import Navbar from "./components/Navbar/Navbar";
 import ProductCard from "./components/ProductCard/ProductCard";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import CategoryCard from "./components/CategoryCard/CategoryCard";
-import HeroImg from "./components/HeroImg/HeroImg";
-import CartCard from "./components/CartCard/CartCard";
 import Home from "./pages/Home/Home";
 import Product from "./pages/Product/Product";
 import Footer from "./components/Footer/Footer";
 
 function App() {
-  const [products, setProducts] = useState([])
+  // const [products, setProducts] = useState([])
   // const getData =async () => {
   //     const res = await axios.get('api/products')
   //     console.log( res.data.products)

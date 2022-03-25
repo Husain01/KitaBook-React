@@ -1,42 +1,32 @@
 import React from 'react'
 import './ProductCard.css'
-const ProductCard = ({product={title: ""}}) => {
-    console.log(product.title)
+const ProductCard = ({product}) => {
+    console.log(product);
+    
   return (
-    <div class="card card-ecom  normal-shadow">
-                <div
-                  class="product-img product-img-fill product-img-horizontal"
-                >
-                  <img
-                    src="https://images-na.ssl-images-amazon.com/images/I/41+grDTP2FL._SY344_BO1,204,203,200_.jpg"
-                    alt=""
-                  />
-                </div>
-                <div class="card-footer card-footer-hr">
-                  <div class="product-content product-content-hr">
-                    <div class="product-header">
-                      <h3 class="product-title product-title-hr">
-                        {product.title}
-                      </h3>
-                      <button
-                        class="wishlist wishlist-horizontal normal-shadow"
-                      >
-                        <i class="far fa-heart"></i>
-                      </button>
-                    </div>
-                    <div class="card-badge card-badge-hr">New</div>
-                    <p class="product-desc product-desc-hr">
-                      By Ankur Warikoo
-                    </p>
-                  </div>
-                  <div class="btn-footer">
-                    <span class="price">$39.99</span>
-                    <button class="cart cart-hr normal-shadow">
-                      <i class="fas fa-cart-plus"></i>Add to Cart
+    <div class="card card-ecom normal-shadow">
+                  <div class="product-img">
+                    <img src="https://images-na.ssl-images-amazon.com/images/I/41+grDTP2FL._SY344_BO1,204,203,200_.jpg" alt="" />
+                    <div class="card-alt-badge normal-shadow">{product.badge}</div>
+                    <button class="alt-wishlist normal-shadow">
+                      <i class="far fa-heart"></i>
                     </button>
                   </div>
-                </div>
-              </div>
+                  <div class="card-footer">
+                    <div class="product-content">
+                      <h3 class="product-title">{product.title}</h3>
+                      <p class="product-desc">
+                        by {product.author}
+                      </p>
+                    </div>
+                    <div class="btn-footer">
+                      <span class="price">{product.price}</span>
+                      <button class="cart normal-shadow">
+                        <i class="fas fa-cart-plus"></i>Add to Cart
+                      </button>
+                    </div>
+                  </div>
+                  </div>
   )
 }
 

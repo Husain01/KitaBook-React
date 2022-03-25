@@ -1,7 +1,11 @@
+import './Product.css'
+import axios from 'axios'
 import React from 'react'
 import { useState, useEffect } from 'react'
 import Filter from '../../components/Filters/Filter'
-import './Product.css'
+import ProductCSS from './Product.module.css'
+import ProductCard from '../../components/ProductCard/ProductCard'
+import { Link } from 'react-router-dom'
 
 const Product = () => {
   const [products, setProducts] = useState([])
@@ -10,7 +14,7 @@ const Product = () => {
       (async () => {
         const res = await axios.get('api/products')
         console.log( res.data.products)
-        setCategories(res.data.products)
+        setProducts(res.data.products)
       })();
     } catch (error) {
       console.log(error)
@@ -19,10 +23,19 @@ const Product = () => {
   return (
     <>
     <Filter/>
-    <main className='main-content'>
+    <main className={`main-content ${ProductCSS["main-content"]}`}>
     <div className='product-listing'>
       <div className='products-header'>
         <h3>Showing All Products</h3>
+        <span>(Showing {products.length} products)</span>
+      </div>
+      <div className='product-cards'>
+        {
+        products && products.map((info)=>{
+          console.log(info);
+           return <ProductCard  product={info}/>
+// console.log(products);  
+        })}
       </div>
     </div>
     </main>
