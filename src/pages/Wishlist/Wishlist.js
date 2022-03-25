@@ -4,8 +4,8 @@ import WishlistCSS from './Wishlist.module.css'
 const Wishlist = () => {
   return (
     <div class={`"content-container" ${WishlistCSS["content-container"]}`}>
-            <main class="main-content">
-                <h2 class={WishlistCSS['wishlist-heading']}>My Wishlist</h2>
+            <main class={`main-content ${WishlistCSS["main-content"]}`}>
+                <h2 class={`wishlist-heading ${WishlistCSS['wishlist-heading']}`}>My Wishlist</h2>
                 <div class="product-cards">
                     <div class="card card-ecom normal-shadow">
                       <div class="product-img">

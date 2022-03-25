@@ -23,7 +23,7 @@ const Home = () => {
   }, [])
   return (
     <div className={HomeCSS["content-container"]}>
-        <div className="main-content">
+        <div className={`main-content ${HomeCSS["main-content"]}`}>
             <HeroImg/>
             <div className="categories-card">
                 <CategoryCard  categories={categories}/>
