@@ -9,8 +9,8 @@ import CategoryCard from "./components/CategoryCard/CategoryCard";
 import HeroImg from "./components/HeroImg/HeroImg";
 import CartCard from "./components/CartCard/CartCard";
 import Home from "./pages/Home/Home";
-import Footer from "./components/Footer/Footer";
 import Product from "./pages/Product/Product";
+import Footer from "./components/Footer/Footer";
 
 function App() {
   const [products, setProducts] = useState([])

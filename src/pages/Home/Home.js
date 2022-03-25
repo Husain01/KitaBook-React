@@ -1,5 +1,6 @@
 import React from 'react'
 import './Home.css'
+import HomeCSS from './Home.module.css'
 import CategoryCard from '../../components/CategoryCard/CategoryCard'
 import HeroImg from '../../components/HeroImg/HeroImg'
 import { useEffect, useState } from "react";
@@ -21,7 +22,7 @@ const Home = () => {
     }
   }, [])
   return (
-    <div className="content-container">
+    <div className={HomeCSS["content-container"]}>
         <div className="main-content">
             <HeroImg/>
             <div className="categories-card">

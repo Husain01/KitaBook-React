@@ -1,0 +1,6 @@
+.content-container{
+    flex-direction: column;
+}
+.main-content{
+    padding: 3rem;
+}
