@@ -9,6 +9,7 @@ import Home from "./pages/Home/Home";
 import Product from "./pages/Product/Product";
 import Footer from "./components/Footer/Footer";
 import Wishlist from "./pages/Wishlist/Wishlist";
+import Cart from "./pages/Cart/Cart";
 
 function App() {
   // const [products, setProducts] = useState([])
@@ -55,6 +56,7 @@ function App() {
         <Route path="/home" element = {<Home/>}/>
         <Route path='/products' element = {<Product/>}/>
         <Route path="/wishlist" element = {<Wishlist/>}/>
+        <Route path="/cart" element = {<Cart/>}/>
         <Route path="/mock" element={<Mockman/>}/>
       </Routes>
       
