@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './Auth.css';
 
 const Signup = () => {
@@ -23,7 +24,7 @@ const Signup = () => {
               >
             </div>
             <button class="btn btn-primary button-submit normal-shadow">Sign Up</button>
-            <a href="../auth/login.html">Already have an account &gt;</a>
+            <Link to="/login">Already have an account &gt;</Link>
           </div>
         </div>
       </main>

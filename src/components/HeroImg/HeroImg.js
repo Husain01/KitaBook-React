@@ -2,15 +2,16 @@ import React from 'react';
 import landingPage from '../../assets/landing-page.jpg'
 import mobLanding from '../../assets/landing-mob.png'
 import './HeroImg.css'
+import { Link } from 'react-router-dom';
 
 const HeroImg = () => {
   return (
       <>
     <div class="img-landing ">
-    <a href="/pages/product-page/product-page.html">
+    <Link to="/products">
     <img src={landingPage} alt="" class="img-landing-desktop normal-shadow"/>
     <img src={mobLanding} alt="" class="img-landing-mob normal-shadow"/>
-  </a>
+  </Link>
   </div>
       </>
   )
