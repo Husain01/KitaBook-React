@@ -2,28 +2,28 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './Auth.css';
 
-const Signup = () => {
+export const Signup = () => {
   return (
-    <main class="auth-container">
-        <div class="auth-box normal-shadow">
-          <h2 class="auth-title">Sign Up</h2>
-          <div class="form">
-            <div class="form-group">
+    <main className="auth-container">
+        <div className="auth-box normal-shadow">
+          <h2 className="auth-title">Sign Up</h2>
+          <div className="form">
+            <div className="form-group">
               <label for="email">Email *</label>
               <input type="email" placeholder="Enter email address here" />
             </div>
-            <div class="form-group">
+            <div className="form-group">
               <label for="pass">Password *</label>
               <input type="password" placeholder="Enter password" />
             </div>
-            <div class="below-pass">
-              <label for="Remember Me" class="remember-check">
+            <div className="below-pass">
+              <label for="Remember Me" className="remember-check">
                 <input type="checkbox" name="Remember Me" id="" />
-                <span class="checkbox"></span>
+                <span className="checkbox"></span>
                 I accept all Terms & Conditions</label
               >
             </div>
-            <button class="btn btn-primary button-submit normal-shadow">Sign Up</button>
+            <button className="btn btn-primary button-submit normal-shadow">Sign Up</button>
             <Link to="/login">Already have an account &gt;</Link>
           </div>
         </div>
@@ -31,4 +31,3 @@ const Signup = () => {
   )
 }
 
-export default Signup

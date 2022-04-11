@@ -7,10 +7,10 @@ import { Link } from 'react-router-dom';
 export const HeroImg = () => {
   return (
       <>
-    <div class="img-landing ">
+    <div className="img-landing ">
     <Link to="/products">
-    <img src={landingPage} alt="" class="img-landing-desktop normal-shadow"/>
-    <img src={mobLanding} alt="" class="img-landing-mob normal-shadow"/>
+    <img src={landingPage} alt="" className="img-landing-desktop normal-shadow"/>
+    <img src={mobLanding} alt="" className="img-landing-mob normal-shadow"/>
   </Link>
   </div>
       </>

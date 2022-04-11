@@ -8,7 +8,7 @@ import axios from 'axios';
 import { CategoryCard, Footer, HeroImg } from '../../components';
 
 
-const Home = () => {
+export const Home = () => {
     const [categories, setCategories] = useState([])
      useEffect(() => {
     try {
@@ -33,4 +33,3 @@ const Home = () => {
   )
 }
 
-export default Home

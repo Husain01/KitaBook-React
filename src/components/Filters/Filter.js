@@ -3,67 +3,67 @@ import './Filter.css';
 
 export const Filter = () => {
   return (
-    <aside class="aside">
-          <div class="side-heading">
+    <aside className="aside">
+          <div className="side-heading">
             <h4>Filters</h4>
             <p>Clear</p>
           </div>
-          <div class="price-range">
+          <div className="price-range">
             <h5>Price</h5>
             <span>₹0 - ₹1000+</span>
-            <div class="range-slider">
+            <div className="range-slider">
               <input type="range" />
             </div>
           </div>
-          <div class="category">
+          <div className="category">
             <h5>Category</h5>
-            <div class="category-options">
-              <label for="self-help" class="options-input">
+            <div className="category-options">
+              <label htmlFor="self-help" className="options-input">
                 <input
                   type="checkbox"
                   name=""
                   id="self-help"
-                  class="checkbox-input"
+                  className="checkbox-input"
                 />
-                <span class="check-desc">Self Help</span>
+                <span className="check-desc">Self Help</span>
               </label>
-              <label for="fiction" class="options-input">
+              <label htmlFor="fiction" className="options-input">
                 <input
                   type="checkbox"
                   name=""
                   id="fiction"
-                  class="checkbox-input"
+                  className="checkbox-input"
                 />
-                <span class="check-desc">Fiction</span>
+                <span className="check-desc">Fiction</span>
               </label>
-              <label for="non-fiction" class="options-input">
+              <label htmlFor="non-fiction" className="options-input">
                 <input
                   type="checkbox"
                   name=""
                   id="non-fiction"
-                  class="checkbox-input"
+                  className="checkbox-input"
                 />
-                <span class="check-desc">Non-Fiction</span>
+                <span className="check-desc">Non-Fiction</span>
               </label>
             </div>
           </div>
-          <div class="ratings">
+          <div className="ratings">
             <h5>Ratings</h5>
-            <label class="options-input custom-radio-btn">
-                <input type="radio" name="ratings"  class="radiomark"/>
-                <span class="check-desc">4 Stars & above</span>
+            <label className="options-input custom-radio-btn">
+                <input type="radio" name="ratings"  className="radiomark"/>
+                <span className="check-desc">4 Stars & above</span>
             </label>
-            <label class="options-input custom-radio-btn">
-                <input type="radio" name="ratings"  class="radiomark"/>
-                <span class="check-desc">3 Stars & above</span>
+            <label className="options-input custom-radio-btn">
+                <input type="radio" name="ratings"  className="radiomark"/>
+                <span className="check-desc">3 Stars & above</span>
             </label>
-            <label class="options-input custom-radio-btn">
-                <input type="radio" name="ratings"  class="radiomark"/>
-                <span class="check-desc">2 Stars & above</span>
+            <label className="options-input custom-radio-btn">
+                <input type="radio" name="ratings"  className="radiomark"/>
+                <span className="check-desc">2 Stars & above</span>
             </label>
-            <label class="options-input custom-radio-btn">
-                <input type="radio" name="ratings"  class="radiomark"/>
-                <span class="check-desc">1 Stars & above</span>
+            <label className="options-input custom-radio-btn">
+                <input type="radio" name="ratings"  className="radiomark"/>
+                <span className="check-desc">1 Stars & above</span>
             </label>
         </div>
         </aside>

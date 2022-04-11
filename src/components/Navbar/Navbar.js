@@ -6,38 +6,38 @@ import { Link } from 'react-router-dom'
 export const Navbar = () => {
   return (
       <>
-    <header class="navbar">
-        <div class="logo">
+    <header className="navbar">
+        <div className="logo">
             <Link to="/home">
           <img src={logo} alt="" />
             </Link>
         </div>
-        <div class="search">
-          <i class="fas fa-search"></i>
-          <input type="text" class="search-input" placeholder="Search" />
+        <div className="search">
+          <i className="fas fa-search"></i>
+          <input type="text" className="search-input" placeholder="Search" />
         </div>
-        <div class="nav-links">
+        <div className="nav-links">
           <Link to='/login'>
-          <button class="btn btn-primary btn-login normal-shadow">Login</button>
+          <button className="btn btn-primary btn-login normal-shadow">Login</button>
         </Link>
-          <div class="badge">
+          <div className="badge">
             <Link to="/wishlist">
             <button
-              class="btn simple simple-primary btn-floating avatar sm normal-shadow"
+              className="btn simple simple-primary btn-floating avatar sm normal-shadow"
             >
-              <i class="far fa-heart"></i>
+              <i className="far fa-heart"></i>
             </button>
-            <div class="badge-no dnd">9+</div>
+            <div className="badge-no dnd">9+</div>
           </Link>
           </div>
-          <div class="badge">
+          <div className="badge">
             <Link to="/cart">
             <button
-              class="btn simple simple-primary btn-floating avatar sm normal-shadow"
+              className="btn simple simple-primary btn-floating avatar sm normal-shadow"
             >
-              <i class="fas fa-cart-plus"></i>
+              <i className="fas fa-cart-plus"></i>
             </button>
-            <div class="badge-no dnd">9+</div>
+            <div className="badge-no dnd">9+</div>
           </Link>
           </div>
         </div>

@@ -1,32 +1,27 @@
-import React from 'react'
-import './ProductCard.css'
-export const ProductCard = ({product}) => {
-    console.log(product);
-    
+import React from "react";
+import "./ProductCard.css";
+export const ProductCard = ({ product }) => {
   return (
-    <div class="card card-ecom normal-shadow">
-                  <div class="product-img">
-                    <img src={product.image} alt="" />
-                    <div class="card-alt-badge normal-shadow">{product.badge}</div>
-                    <button class="alt-wishlist normal-shadow">
-                      <i class="far fa-heart"></i>
-                    </button>
-                  </div>
-                  <div class="card-footer">
-                    <div class="product-content">
-                      <h3 class="product-title">{product.title}</h3>
-                      <p class="product-desc">
-                        by {product.author}
-                      </p>
-                    </div>
-                    <div class="btn-footer">
-                      <span class="price">{product.price}</span>
-                      <button class="cart normal-shadow">
-                        <i class="fas fa-cart-plus"></i>Add to Cart
-                      </button>
-                    </div>
-                  </div>
-                  </div>
-  )
-}
-
+    <div className="card card-ecom normal-shadow">
+      <div className="product-img">
+        <img src={product.image} alt="" />
+        <div className="card-alt-badge normal-shadow">{product.badge}</div>
+        <button className="alt-wishlist normal-shadow">
+          <i className="far fa-heart"></i>
+        </button>
+      </div>
+      <div className="card-footer">
+        <div className="product-content">
+          <h3 className="product-title">{product.title}</h3>
+          <p className="product-desc">by {product.author}</p>
+        </div>
+        <div className="btn-footer">
+          <span className="price">{product.price}</span>
+          <button className="cart normal-shadow">
+            <i className="fas fa-cart-plus"></i>Add to Cart
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+};

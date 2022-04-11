@@ -7,7 +7,7 @@ export const CategoryCard = ({categories}) => {
   return (
     categories && categories.map(e => {
       return (
-        <div class="category-card normal-shadow" key={e._id}>
+        <div className="category-card normal-shadow" key={e._id}>
         <Link to="/products">
         <img src={e.image} alt="" />
         </Link>

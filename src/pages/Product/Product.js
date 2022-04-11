@@ -7,13 +7,12 @@ import ProductCSS from './Product.module.css'
 import { Filter, ProductCard } from '../../components'
 
 
-const Product = () => {
+export const Product = () => {
   const [products, setProducts] = useState([])
   useEffect(() => {
     try {
       (async () => {
         const res = await axios.get('api/products')
-        console.log(res.data.products)
         setProducts(res.data.products)
       })();
     } catch (error) {
@@ -33,9 +32,7 @@ const Product = () => {
             <div className='product-cards'>
               {
                 products && products.map((info) => {
-                  console.log(info);
-                  return <ProductCard product={info} />
-                  // console.log(products);  
+                  return <ProductCard product={info} key={info._id}/>
                 })}
             </div>
           </div>
@@ -45,4 +42,3 @@ const Product = () => {
   )
 }
 
-export default Product
