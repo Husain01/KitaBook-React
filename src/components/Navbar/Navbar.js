@@ -3,7 +3,7 @@ import './Navbar.css'
 import logo from '../../assets/KITABOOK.png'
 import { Link } from 'react-router-dom'
 
-const Navbar = () => {
+export const Navbar = () => {
   return (
       <>
     <header class="navbar">
@@ -48,4 +48,4 @@ const Navbar = () => {
   )
 }
 
-export default Navbar
+ 

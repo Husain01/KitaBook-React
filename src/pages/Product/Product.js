@@ -2,10 +2,10 @@ import './Product.css'
 import axios from 'axios'
 import React from 'react'
 import { useState, useEffect } from 'react'
-import Filter from '../../components/Filters/Filter'
+
 import ProductCSS from './Product.module.css'
-import ProductCard from '../../components/ProductCard/ProductCard'
-import { Link } from 'react-router-dom'
+import { Filter, ProductCard } from '../../components'
+
 
 const Product = () => {
   const [products, setProducts] = useState([])

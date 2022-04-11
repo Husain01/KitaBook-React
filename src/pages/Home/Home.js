@@ -1,11 +1,11 @@
 import React from 'react'
 import './Home.css'
 import HomeCSS from './Home.module.css'
-import CategoryCard from '../../components/CategoryCard/CategoryCard'
-import HeroImg from '../../components/HeroImg/HeroImg'
+
+
 import { useEffect, useState } from "react";
 import axios from 'axios';
-import Footer from '../../components/Footer/Footer';
+import { CategoryCard, Footer, HeroImg } from '../../components';
 
 
 const Home = () => {
@@ -14,7 +14,6 @@ const Home = () => {
     try {
       (async () => {
         const res = await axios.get('api/categories')
-        console.log( res.data.categories)
         setCategories(res.data.categories)
       })();
     } catch (error) {

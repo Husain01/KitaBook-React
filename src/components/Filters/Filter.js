@@ -1,7 +1,7 @@
 import React from 'react'
 import './Filter.css';
 
-const Filter = () => {
+export const Filter = () => {
   return (
     <aside class="aside">
           <div class="side-heading">
@@ -70,4 +70,3 @@ const Filter = () => {
   )
 }
 
-export default Filter

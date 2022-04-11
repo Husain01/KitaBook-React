@@ -1,17 +1,14 @@
 import { Route, Routes } from "react-router-dom";
 import Mockman from "mockman-js";
 import "./App.css";
-import Navbar from "./components/Navbar/Navbar";
-import ProductCard from "./components/ProductCard/ProductCard";
-import { useEffect, useState } from "react";
-import axios from "axios";
+
 import Home from "./pages/Home/Home";
 import Product from "./pages/Product/Product";
-import Footer from "./components/Footer/Footer";
 import Wishlist from "./pages/Wishlist/Wishlist";
 import Cart from "./pages/Cart/Cart";
 import Signup from "./pages/Auth/Signup";
 import Login from "./pages/Auth/Login";
+import { Navbar } from "./components";
 
 function App() {
   // const [products, setProducts] = useState([])

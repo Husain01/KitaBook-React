@@ -4,7 +4,7 @@ import mobLanding from '../../assets/landing-mob.png'
 import './HeroImg.css'
 import { Link } from 'react-router-dom';
 
-const HeroImg = () => {
+export const HeroImg = () => {
   return (
       <>
     <div class="img-landing ">
@@ -17,4 +17,3 @@ const HeroImg = () => {
   )
 }
 
-export default HeroImg

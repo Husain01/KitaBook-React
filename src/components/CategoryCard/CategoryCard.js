@@ -3,7 +3,7 @@ import './CategoryCard.css'
 import selfhelp from '../../assets/categories/1.jpg'
 import { Link } from "react-router-dom";
 
-const CategoryCard = ({categories}) => {
+export const CategoryCard = ({categories}) => {
   return (
     categories && categories.map(e => {
       return (
@@ -20,4 +20,3 @@ const CategoryCard = ({categories}) => {
   );
 };
 
-export default CategoryCard;

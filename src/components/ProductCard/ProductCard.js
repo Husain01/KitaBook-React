@@ -1,6 +1,6 @@
 import React from 'react'
 import './ProductCard.css'
-const ProductCard = ({product}) => {
+export const ProductCard = ({product}) => {
     console.log(product);
     
   return (
@@ -30,4 +30,3 @@ const ProductCard = ({product}) => {
   )
 }
 
-export default ProductCard

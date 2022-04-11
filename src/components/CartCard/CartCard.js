@@ -1,7 +1,7 @@
 import React from 'react';
 import './CartCard.css'
 
-const CartCard = () => {
+export const CartCard = () => {
   return (
     <div class="card card-ecom card-ecom-horizontal normal-shadow">
     <div
@@ -40,4 +40,3 @@ const CartCard = () => {
   )
 }
 
-export default CartCard
