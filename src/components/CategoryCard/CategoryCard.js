@@ -1,15 +1,22 @@
 import React from "react";
 import './CategoryCard.css'
 import selfhelp from '../../assets/categories/1.jpg'
+import { Link } from "react-router-dom";
 
-const CategoryCard = () => {
+export const CategoryCard = ({categories}) => {
   return (
-    <div class="category-card normal-shadow">
-      <a href="/pages/product-page/product-page.html">
-        <img src={selfhelp} alt="" />
-      </a>
-    </div>
+    categories && categories.map(e => {
+      return (
+        <div className="category-card normal-shadow" key={e._id}>
+        <Link to="/products">
+        <img src={e.image} alt="" />
+        </Link>
+        </div>
+      )
+    })
+
+      
+    
   );
 };
 
-export default CategoryCard;

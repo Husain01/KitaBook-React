@@ -14,20 +14,20 @@ export const categories = [
     categoryName: "fiction",
     description:
       "literature in the form of prose, especially novels, that describes imaginary events and people",
-      image: {fiction}
+      image: fiction
   },
   {
     _id: uuid(),
     categoryName: "non-fiction",
     description:
       "Non-fiction is writing that gives information or describes real events, rather than telling a story.",
-      image: {nonfiction}
+      image: nonfiction
   },
   {
     _id: uuid(),
     categoryName: "self-help",
     description:
       "the action or process of bettering oneself or overcoming one's problems without the aid of others",
-      image: {selfhelp}
+      image: selfhelp
   },
 ];

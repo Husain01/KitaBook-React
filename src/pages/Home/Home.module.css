@@ -1,0 +1,8 @@
+.content-container{
+    flex-direction: column;
+    padding: 0 1.5rem;
+}
+.main-content{
+    padding: 3rem;
+    gap: 2rem;
+}

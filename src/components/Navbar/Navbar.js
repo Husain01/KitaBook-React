@@ -1,43 +1,44 @@
 import React from 'react'
 import './Navbar.css'
 import logo from '../../assets/KITABOOK.png'
+import { Link } from 'react-router-dom'
 
-const Navbar = () => {
+export const Navbar = () => {
   return (
       <>
-    <header class="navbar">
-        <div class="logo">
-          <a href="/index.html">
+    <header className="navbar">
+        <div className="logo">
+            <Link to="/home">
           <img src={logo} alt="" />
-        </a>
+            </Link>
         </div>
-        <div class="search">
-          <i class="fas fa-search"></i>
-          <input type="text" class="search-input" placeholder="Search" />
+        <div className="search">
+          <i className="fas fa-search"></i>
+          <input type="text" className="search-input" placeholder="Search" />
         </div>
-        <div class="nav-links">
-          <a href="/pages/auth/login.html">
-          <button class="btn btn-primary btn-login normal-shadow">Login</button>
-        </a>
-          <div class="badge">
-            <a href="/pages/wishlist/wishlist.html">
+        <div className="nav-links">
+          <Link to='/login'>
+          <button className="btn btn-primary btn-login normal-shadow">Login</button>
+        </Link>
+          <div className="badge">
+            <Link to="/wishlist">
             <button
-              class="btn simple simple-primary btn-floating avatar sm normal-shadow"
+              className="btn simple simple-primary btn-floating avatar sm normal-shadow"
             >
-              <i class="far fa-heart"></i>
+              <i className="far fa-heart"></i>
             </button>
-            <div class="badge-no dnd">9+</div>
-          </a>
+            <div className="badge-no dnd">9+</div>
+          </Link>
           </div>
-          <div class="badge">
-            <a href="/pages/cart/cart.html">
+          <div className="badge">
+            <Link to="/cart">
             <button
-              class="btn simple simple-primary btn-floating avatar sm normal-shadow"
+              className="btn simple simple-primary btn-floating avatar sm normal-shadow"
             >
-              <i class="fas fa-cart-plus"></i>
+              <i className="fas fa-cart-plus"></i>
             </button>
-            <div class="badge-no dnd">9+</div>
-          </a>
+            <div className="badge-no dnd">9+</div>
+          </Link>
           </div>
         </div>
       </header>
@@ -47,4 +48,4 @@ const Navbar = () => {
   )
 }
 
-export default Navbar
+ 

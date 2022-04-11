@@ -1,43 +1,27 @@
-import React from 'react'
-import './ProductCard.css'
-const ProductCard = ({product={title: ""}}) => {
-    console.log(product.title)
+import React from "react";
+import "./ProductCard.css";
+export const ProductCard = ({ product }) => {
   return (
-    <div class="card card-ecom  normal-shadow">
-                <div
-                  class="product-img product-img-fill product-img-horizontal"
-                >
-                  <img
-                    src="https://images-na.ssl-images-amazon.com/images/I/41+grDTP2FL._SY344_BO1,204,203,200_.jpg"
-                    alt=""
-                  />
-                </div>
-                <div class="card-footer card-footer-hr">
-                  <div class="product-content product-content-hr">
-                    <div class="product-header">
-                      <h3 class="product-title product-title-hr">
-                        {product.title}
-                      </h3>
-                      <button
-                        class="wishlist wishlist-horizontal normal-shadow"
-                      >
-                        <i class="far fa-heart"></i>
-                      </button>
-                    </div>
-                    <div class="card-badge card-badge-hr">New</div>
-                    <p class="product-desc product-desc-hr">
-                      By Ankur Warikoo
-                    </p>
-                  </div>
-                  <div class="btn-footer">
-                    <span class="price">$39.99</span>
-                    <button class="cart cart-hr normal-shadow">
-                      <i class="fas fa-cart-plus"></i>Add to Cart
-                    </button>
-                  </div>
-                </div>
-              </div>
-  )
-}
-
-export default ProductCard
+    <div className="card card-ecom normal-shadow">
+      <div className="product-img">
+        <img src={product.image} alt="" />
+        <div className="card-alt-badge normal-shadow">{product.badge}</div>
+        <button className="alt-wishlist normal-shadow">
+          <i className="far fa-heart"></i>
+        </button>
+      </div>
+      <div className="card-footer">
+        <div className="product-content">
+          <h3 className="product-title">{product.title}</h3>
+          <p className="product-desc">by {product.author}</p>
+        </div>
+        <div className="btn-footer">
+          <span className="price">{product.price}</span>
+          <button className="cart normal-shadow">
+            <i className="fas fa-cart-plus"></i>Add to Cart
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+};

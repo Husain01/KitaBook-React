@@ -1,17 +1,19 @@
 import React from 'react';
 import landingPage from '../../assets/landing-page.jpg'
+import mobLanding from '../../assets/landing-mob.png'
+import './HeroImg.css'
+import { Link } from 'react-router-dom';
 
-const HeroImg = () => {
+export const HeroImg = () => {
   return (
       <>
-    <div class="img-landing ">
-    <a href="/pages/product-page/product-page.html">
-    <img src={landingPage} alt="" class="img-landing-desktop normal-shadow"/>
-    <img src="/assets/landing-mob.png" alt="" class="img-landing-mob normal-shadow"/>
-  </a>
+    <div className="img-landing ">
+    <Link to="/products">
+    <img src={landingPage} alt="" className="img-landing-desktop normal-shadow"/>
+    <img src={mobLanding} alt="" className="img-landing-mob normal-shadow"/>
+  </Link>
   </div>
       </>
   )
 }
 
-export default HeroImg
