@@ -11,12 +11,17 @@ export const ProductCard = ({ product }) => {
         </button>
       </div>
       <div className="card-footer">
-        <div className="product-content">
-          <h3 className="product-title">{product.title}</h3>
-          <p className="product-desc">by {product.author}</p>
+        <div className="product-main">
+          <div className="product-content">
+            <h3 className="product-title">{product.title}</h3>
+            <p className="product-desc">by {product.author}</p>
+          </div>
+          <div className="product-rating">
+            <div className="card-badge"><i class="fas fa-star"></i> {product.ratings}</div>
+          </div>
         </div>
         <div className="btn-footer">
-          <span className="price">{product.price}</span>
+          <span className="price">${product.price}</span>
           <button className="cart normal-shadow">
             <i className="fas fa-cart-plus"></i>Add to Cart
           </button>

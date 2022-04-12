@@ -6,8 +6,8 @@ import { CartState } from '../../context/Context'
 
 
 export const Product = () => {
-  const {state} = CartState();
-  console.log(state)
+  const {state: {products}} = CartState();
+  console.log(products)
   return (
     <>
       <div className={`content-container ${ProductCSS['content-container']}`}>
@@ -16,11 +16,11 @@ export const Product = () => {
           <div className='product-listing'>
             <div className='products-header'>
               <h3>Showing All Products</h3>
-              <span>(Showing {state.products.length} products)</span>
+              <span>(Showing {products.length} products)</span>
             </div>
             <div className='product-cards'>
               {
-                state.products && state.products.map((info) => {
+                products && products.map((info) => {
                   return <ProductCard product={info} key={info._id}/>
                 })}
             </div>
