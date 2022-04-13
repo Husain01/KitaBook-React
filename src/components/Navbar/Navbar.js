@@ -2,8 +2,10 @@ import React from 'react'
 import './Navbar.css'
 import logo from '../../assets/KITABOOK.png'
 import { Link } from 'react-router-dom'
+import { CartState } from '../../context/Context'
 
 export const Navbar = () => {
+  const {state: {cart}} = CartState()
   return (
       <>
     <header className="navbar">
@@ -37,7 +39,7 @@ export const Navbar = () => {
             >
               <i className="fas fa-cart-plus"></i>
             </button>
-            <div className="badge-no dnd">9+</div>
+            <div className="badge-no dnd">{cart.length}</div>
           </Link>
           </div>
         </div>

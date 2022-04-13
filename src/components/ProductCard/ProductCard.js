@@ -1,6 +1,10 @@
 import React from "react";
+import { CartState } from "../../context/Context";
 import "./ProductCard.css";
 export const ProductCard = ({ product }) => {
+
+  const {state: {cart}, dispatch} = CartState();
+  console.log(cart)
   return (
     <div className="card card-ecom normal-shadow">
       <div className="product-img">
@@ -22,9 +26,29 @@ export const ProductCard = ({ product }) => {
         </div>
         <div className="btn-footer">
           <span className="price">${product.price}</span>
-          <button className="cart normal-shadow">
-            <i className="fas fa-cart-plus"></i>Add to Cart
+          {
+            cart.some(p => p._id == product._id)?(
+              <button onClick={() => {
+                dispatch({
+                  type: "REMOVE_FROM_CART",
+                  payload: product,
+                })
+              } } className="cart normal-shadow">
+            <i className="fas fa-cart-plus"></i>Remove From Cart
           </button>
+            ):(<button onClick={() => {
+              dispatch({
+                type: "ADD_TO_CART",
+                payload: product,
+              })
+            } } className="cart normal-shadow">
+            <i className="fas fa-cart-plus"></i>Add to Cart
+          </button>)
+          }
+          
+          {/* <button className="cart normal-shadow">
+            <i className="fas fa-cart-plus"></i>Remove From Cart
+          </button> */}
         </div>
       </div>
     </div>

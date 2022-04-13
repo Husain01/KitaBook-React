@@ -66,3 +66,26 @@
 .cart-hr{
     width: max-content;
 }
+
+.qty{
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.minus, .add{
+    width: 2rem;
+    background-color: var(--bg-color);
+    outline: none;
+    border: none;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.qty-count{
+    font-size: 1.5rem;
+}

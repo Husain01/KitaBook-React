@@ -30,7 +30,7 @@ export const products = [
     _id: uuid(),
     title: "The Psychology of Money",
     author: "Morgan Housel",
-    price: "799.99",
+    price: "299.99",
     categoryName: "non-fiction",
     badge: "New",
     image: "https://images-eu.ssl-images-amazon.com/images/I/41r6F2LRf8L._SY264_BO1,204,203,200_QL40_FMwebp_.jpg",
