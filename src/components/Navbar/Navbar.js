@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 import { CartState } from '../../context/Context'
 
 export const Navbar = () => {
-  const {state: {cart}} = CartState()
+  const {state: {cart},productDispatch} = CartState()
   return (
       <>
     <header className="navbar">
@@ -16,7 +16,12 @@ export const Navbar = () => {
         </div>
         <div className="search">
           <i className="fas fa-search"></i>
-          <input type="text" className="search-input" placeholder="Search" />
+          <input type="text" className="search-input" placeholder="Search" onChange={(e)=>{
+            productDispatch({
+              type: "FILTER_BY_SEARCH",
+              payload: e.target.value,
+            })
+          }}/>
         </div>
         <div className="nav-links">
           <Link to='/login'>

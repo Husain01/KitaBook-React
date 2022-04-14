@@ -1,11 +1,6 @@
 import axios from "axios";
-import React, {
-  createContext,
-  useContext,
-  useEffect,
-  useReducer,
-} from "react";
-import { cartReducer } from "./Reducers";
+import React, { createContext, useContext, useEffect, useReducer } from "react";
+import { cartReducer, productReducer } from "./Reducers";
 
 const CartContext = createContext();
 
@@ -14,6 +9,15 @@ const Context = ({ children }) => {
     products: [],
     cart: [],
   });
+  const [productState, productDispatch] = useReducer(productReducer, {
+    sortBy: null,
+    categorySelfHelp: false,
+    categoryFiction: false,
+    categoryNonFiction: false,
+    rating:0,
+    searchQuery: "",
+    sliderValue: 500
+  })
   useEffect(() => {
     (async () => {
       try {
@@ -30,7 +34,7 @@ const Context = ({ children }) => {
   }, []);
 
   return (
-    <CartContext.Provider value={{ state, dispatch }}>
+    <CartContext.Provider value={{ state, dispatch,productState, productDispatch }}>
       {children}
     </CartContext.Provider>
   );
