@@ -1,24 +1,13 @@
 import './Product.css'
-import axios from 'axios'
 import React from 'react'
-import { useState, useEffect } from 'react'
-
 import ProductCSS from './Product.module.css'
 import { Filter, ProductCard } from '../../components'
+import { CartState } from '../../context/Context'
 
 
 export const Product = () => {
-  const [products, setProducts] = useState([])
-  useEffect(() => {
-    try {
-      (async () => {
-        const res = await axios.get('api/products')
-        setProducts(res.data.products)
-      })();
-    } catch (error) {
-      console.log(error)
-    }
-  }, [])
+  const {state: {products}} = CartState();
+  console.log(products)
   return (
     <>
       <div className={`content-container ${ProductCSS['content-container']}`}>
