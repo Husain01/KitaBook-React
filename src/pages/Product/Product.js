@@ -19,15 +19,6 @@ export const Product = () => {
   } = CartState();
   const transformProducts = () => {
     let sortedProducts = products;
-    
-    // if (sortBy === null) {
-    //   sortedProducts = products;
-    // }
-    // {
-    //   sortedProducts = sortedProducts.sort((a, b) =>
-    //     sortBy === "lowToHigh" ? a.price - b.price : b.price - a.price
-    //   );
-    // }
     if (rating) {
       if (rating === "ONE_STAR") {
         sortedProducts = sortedProducts.filter((item) => item.ratings >= 1);
@@ -44,10 +35,14 @@ export const Product = () => {
     }
     if (sortBy) {
       if (sortBy === "lowToHigh") {
-        sortedProducts = sortedProducts.slice().sort((a, b) => a.price - b.price);
+        sortedProducts = sortedProducts
+          .slice()
+          .sort((a, b) => a.price - b.price);
       }
       if (sortBy === "highToLow") {
-        sortedProducts = sortedProducts.slice().sort((a, b) => b.price - a.price);
+        sortedProducts = sortedProducts
+          .slice()
+          .sort((a, b) => b.price - a.price);
       }
     }
     if (searchQuery) {

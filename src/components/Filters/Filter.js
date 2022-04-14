@@ -7,7 +7,6 @@ export const Filter = () => {
     productState: { sortBy, rating, categorySelfHelp, categoryFiction, categoryNonFiction, sliderValue},
     productDispatch,
   } = CartState();
-  console.log(rating);
   return (
     <aside className="aside">
       <div className="side-heading">
