@@ -12,3 +12,8 @@
 .content-container{
     flex-direction: column;
 }
+
+.product-main{
+    display: flex;
+    justify-content: space-between;
+}

@@ -1,12 +1,9 @@
-import { products } from "../backend/db/products";
-
 export const cartReducer = (state, action) => {
   switch (action.type) {
     case "INITIALIZE_PRODUCTS":
       return {
         ...state,
         products: action.payload,
-        data: action.payload
       };
     case "ADD_TO_CART":
       return { ...state, cart: [...state.cart, { ...action.payload, qty: 1 }] };
@@ -29,6 +26,16 @@ export const cartReducer = (state, action) => {
           c.id === action.payload.id ? (c.qty = action.payload.qty - 1) : c.qty
         ),
       };
+    case "ADD_TO_WISHLIST":
+      return {
+        ...state,
+        wishlist: [...state.wishlist, { ...action.payload }],
+      };
+    case "REMOVE_FROM_WISHLIST":
+      return {
+        ...state,
+        wishlist: state.wishlist.filter((c) => c._id != action.payload._id),
+      };
     default:
       return state;
   }
@@ -47,16 +54,16 @@ export const productReducer = (state, action) => {
     case "SELFHELP":
       return { ...state, categorySelfHelp: !state.categorySelfHelp };
     case "FICTION":
-        return {...state, categoryFiction: !state.categoryFiction};
+      return { ...state, categoryFiction: !state.categoryFiction };
     case "NONFICTION":
-        return {...state, categoryNonFiction: !state.categoryNonFiction}
+      return { ...state, categoryNonFiction: !state.categoryNonFiction };
     case "CLEAR_FILTERS":
       return {
         sortBy: null,
         categorySelfHelp: false,
         categoryFiction: false,
         categoryNonFiction: false,
-        rating:0,
+        rating: 0,
         searchQuery: "",
         sliderValue: 500,
       };

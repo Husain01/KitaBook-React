@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 import { CartState } from '../../context/Context'
 
 export const Navbar = () => {
-  const {state: {cart},productDispatch} = CartState()
+  const {state: {cart, wishlist},productDispatch} = CartState()
   return (
       <>
     <header className="navbar">
@@ -34,7 +34,8 @@ export const Navbar = () => {
             >
               <i className="far fa-heart"></i>
             </button>
-            <div className="badge-no dnd">9+</div>
+            {wishlist && wishlist.length>0 && (<div className="badge-no dnd">{wishlist.length}</div>)}
+            
           </Link>
           </div>
           <div className="badge">
@@ -43,8 +44,10 @@ export const Navbar = () => {
               className="btn simple simple-primary btn-floating avatar sm normal-shadow"
             >
               <i className="fas fa-cart-plus"></i>
-            </button>
-            <div className="badge-no dnd">{cart.length}</div>
+            </button>{
+              cart && cart.length>0 && (<div className="badge-no dnd">{cart.length}</div>)
+            }
+            
           </Link>
           </div>
         </div>
