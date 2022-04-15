@@ -3,16 +3,30 @@ import { CartState } from "../../context/Context";
 import "./ProductCard.css";
 export const ProductCard = ({ product }) => {
 
-  const {state: {cart}, dispatch} = CartState();
+  const {state: {cart, wishlist}, dispatch} = CartState();
   console.log(cart)
   return (
     <div className="card card-ecom normal-shadow">
       <div className="product-img">
         <img src={product.image} alt="" />
-        <div className="card-alt-badge normal-shadow">{product.badge}</div>
-        <button className="alt-wishlist normal-shadow">
+        <div className="card-alt-badge normal-shadow">{product.badge}</div>{
+          wishlist.some(p => p._id == product._id)?<button className="alt-wishlist normal-inset-shadow" onClick={() => {
+            dispatch({
+              type:"REMOVE_FROM_WISHLIST",
+              payload: product
+            })
+          }}>
+          <i className="fas fa-heart"></i>
+        </button>:
+        <button className="alt-wishlist normal-shadow" onClick={() => {
+          dispatch({
+            type:"ADD_TO_WISHLIST",
+            payload: product
+          })
+        }}>
           <i className="far fa-heart"></i>
         </button>
+        }
       </div>
       <div className="card-footer">
         <div className="product-main">

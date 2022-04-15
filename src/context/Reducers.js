@@ -29,7 +29,17 @@ export const cartReducer = (state, action) => {
           c.id === action.payload.id ? (c.qty = action.payload.qty - 1) : c.qty
         ),
       };
-    default:
+      case "ADD_TO_WISHLIST":
+        return {
+          ...state,
+          wishlist: [...state.wishlist, {...action.payload}],
+        }
+      case "REMOVE_FROM_WISHLIST":
+        return {
+          ...state,
+          wishlist: state.wishlist.filter((c)=> c._id != action.payload._id),
+        }
+      default:
       return state;
   }
 };
