@@ -12,8 +12,7 @@ export const Cart = () => {
     setTotal(
       cart.reduce((acc, curr) => acc + Number(curr.price) * curr.qty, 0)
     );
-  }, [cart]);
-
+  }, [cart, wishlist]);
   const initPrice = (total + 0).toFixed(2);
   const discount = (total / 10).toFixed(2);
   const totalPrice = (total - discount).toFixed(2);
@@ -25,96 +24,98 @@ export const Cart = () => {
           <div className="cart-items">
             {cart.length > 0 ? (
               <>
-                {cart.map((product) => (
-                  <div
-                    className="card card-ecom card-ecom-horizontal normal-shadow"
-                    key={product._id}
-                  >
-                    <div className="product-img product-img-fill product-img-horizontal">
-                      <img src={product.image} alt="" />
-                    </div>
-                    <div className="card-footer card-footer-hr">
-                      <div className="product-content product-content-hr">
-                        <div className="product-header">
-                          <h3 className="product-title product-title-hr">
-                            {product.title}
-                          </h3>
-                          {wishlist.some((p) => p._id == product._id) ? (
-                            <button
-                              className="alt-wishlist normal-inset-shadow"
-                              onClick={() => {
-                                dispatch({
-                                  type: "REMOVE_FROM_WISHLIST",
-                                  payload: product,
-                                });
-                              }}
-                            >
-                              <i className="fas fa-heart"></i>
-                            </button>
-                          ) : (
-                            <button
-                              className="alt-wishlist normal-shadow"
-                              onClick={() => {
-                                dispatch({
-                                  type: "ADD_TO_WISHLIST",
-                                  payload: product,
-                                });
-                              }}
-                            >
-                              <i className="far fa-heart"></i>
-                            </button>
-                          )}
+                {cart.map((product) => {
+                  return (
+                    <div
+                      className="card card-ecom card-ecom-horizontal normal-shadow"
+                      key={product._id}
+                    >
+                      <div className="product-img product-img-fill product-img-horizontal">
+                        <img src={product.image} alt="" />
+                      </div>
+                      <div className="card-footer card-footer-hr">
+                        <div className="product-content product-content-hr">
+                          <div className="product-header">
+                            <h3 className="product-title product-title-hr">
+                              {product.title}
+                            </h3>
+                            {wishlist.some((p) => p._id == product._id) ? (
+                              <button
+                                className="alt-wishlist normal-inset-shadow"
+                                onClick={() => {
+                                  dispatch({
+                                    type: "REMOVE_FROM_WISHLIST",
+                                    payload: product,
+                                  });
+                                }}
+                              >
+                                <i className="fas fa-heart"></i>
+                              </button>
+                            ) : (
+                              <button
+                                className="alt-wishlist normal-shadow"
+                                onClick={() => {
+                                  dispatch({
+                                    type: "ADD_TO_WISHLIST",
+                                    payload: product,
+                                  });
+                                }}
+                              >
+                                <i className="far fa-heart"></i>
+                              </button>
+                            )}
+                          </div>
+                          <div className="card-badge card-badge-hr">
+                            {product.badge}
+                          </div>
+                          <p className="product-desc product-desc-hr">
+                            By {product.author}
+                          </p>
                         </div>
-                        <div className="card-badge card-badge-hr">
-                          {product.badge}
+                        <div className="qty">
+                          <button
+                            className="cart minus normal-shadow"
+                            onClick={() =>
+                              dispatch({
+                                type: "DEC_QTY",
+                                payload: product,
+                              })
+                            }
+                            disabled={product.qty === 1 ? true : false}
+                          >
+                            -
+                          </button>
+                          <span className="qty-count">{product.qty}</span>
+                          <button
+                            className="cart add normal-shadow"
+                            onClick={() =>
+                              dispatch({
+                                type: "INC_QTY",
+                                payload: product,
+                              })
+                            }
+                          >
+                            +
+                          </button>
                         </div>
-                        <p className="product-desc product-desc-hr">
-                          By {product.author}
-                        </p>
-                      </div>
-                      <div className="qty">
-                        <button
-                          className="cart minus normal-shadow"
-                          onClick={() =>
-                            dispatch({
-                              type: "DEC_QTY",
-                              payload: product,
-                            })
-                          }
-                          disabled={product.qty === 1 ? true : false}
-                        >
-                          -
-                        </button>
-                        <span className="qty-count">{product.qty}</span>
-                        <button
-                          className="cart add normal-shadow"
-                          onClick={() =>
-                            dispatch({
-                              type: "INC_QTY",
-                              payload: product,
-                            })
-                          }
-                        >
-                          +
-                        </button>
-                      </div>
-                      <div className="btn-footer">
-                        <span className="price">${product.price}</span>
-                        <button
-                          onClick={() => {
-                            dispatch({
-                              type: "REMOVE_FROM_CART",
-                              payload: product,
-                            });
-                          }}
-                          className="cart cart-hr normal-shadow"
-                        >
-                          <i className="fas fa-cart-plus"></i>Remove from Cart
-                        </button>
+                        <div className="btn-footer">
+                          <span className="price">${product.price}</span>
+                          <button
+                            onClick={() => {
+                              dispatch({
+                                type: "REMOVE_FROM_CART",
+                                payload: product,
+                              });
+                            }}
+                            className="cart cart-hr normal-shadow"
+                          >
+                            <i className="fas fa-cart-plus"></i>Remove from Cart
+                          </button>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                ))}
+                  );
+                })}
               </>
             ) : (
               <h2 style={{ textAlign: "center", width: "100%" }}>
