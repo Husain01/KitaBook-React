@@ -36,6 +36,12 @@ export const cartReducer = (state, action) => {
         ...state,
         wishlist: state.wishlist.filter((c) => c._id != action.payload._id),
       };
+      case "EMPTY":
+        return {
+          ...state,
+          cart: [],
+          wishlist: []
+        }
     default:
       return state;
   }
@@ -71,3 +77,36 @@ export const productReducer = (state, action) => {
       return state;
   }
 };
+
+
+export const authReducer = (state, action) => {
+  switch (action.type) {
+   case "SIGNUP":
+     return {
+       ...state,
+       user: action.payload.user,
+       token: action.payload.token
+     }
+   case "LOGIN":
+     return {
+       ...state,
+       user: action.payload.user,
+       token: action.payload.token
+     }
+   case "LOGOUT":
+     return {
+       ...state,
+       user: null,
+       token: null
+     }
+     case "CHECKUSER":
+            return {
+                ...state,
+                user: action.payload.user,
+                token: action.payload.token
+            }
+  
+    default:
+      state;
+  }
+} 

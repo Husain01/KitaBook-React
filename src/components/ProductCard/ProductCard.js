@@ -1,11 +1,15 @@
 import React from "react";
+import { Navigate, useLocation, useNavigate } from "react-router-dom";
 import { CartState } from "../../context/Context";
 import "./ProductCard.css";
 export const ProductCard = ({ product }) => {
   const {
     state: { cart, wishlist },
     dispatch,
+    authState: {token}
   } = CartState();
+  const navigate = useNavigate();
+  const location = useLocation();
   return (
     <div className="card card-ecom normal-shadow">
       <div className="product-img">
@@ -27,10 +31,12 @@ export const ProductCard = ({ product }) => {
           <button
             className="alt-wishlist normal-shadow"
             onClick={() => {
-              dispatch({
+              token ? (dispatch({
                 type: "ADD_TO_WISHLIST",
                 payload: product,
-              });
+              })) : (navigate('/login' ,{
+                state:{from:location}, replace:true}))
+              
             }}
           >
             <i className="far fa-heart"></i>
@@ -54,10 +60,13 @@ export const ProductCard = ({ product }) => {
           {cart.some((p) => p._id == product._id) ? (
             <button
               onClick={() => {
-                dispatch({
+                token ? (dispatch({
                   type: "REMOVE_FROM_CART",
                   payload: product,
-                });
+                })) : (
+                  <Navigate to='/login' state={{from: location}} replace/>
+                )
+                
               }}
               className="cart normal-shadow"
             >
@@ -66,10 +75,16 @@ export const ProductCard = ({ product }) => {
           ) : (
             <button
               onClick={() => {
-                dispatch({
+                token ? (dispatch({
                   type: "ADD_TO_CART",
                   payload: product,
-                });
+                })
+                ) : (
+                  // <Navigate to='/login' state={{from: location}} replace/>
+                  navigate('/login' ,{
+                    state:{from:location}, replace:true})
+                )
+                
               }}
               className="cart normal-shadow"
             >
