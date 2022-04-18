@@ -6,7 +6,7 @@ export const ProductCard = ({ product }) => {
   const {
     state: { cart, wishlist },
     dispatch,
-    authState: {token}
+    authState: { token },
   } = CartState();
   const navigate = useNavigate();
   const location = useLocation();
@@ -31,12 +31,15 @@ export const ProductCard = ({ product }) => {
           <button
             className="alt-wishlist normal-shadow"
             onClick={() => {
-              token ? (dispatch({
-                type: "ADD_TO_WISHLIST",
-                payload: product,
-              })) : (navigate('/login' ,{
-                state:{from:location}, replace:true}))
-              
+              token
+                ? dispatch({
+                    type: "ADD_TO_WISHLIST",
+                    payload: product,
+                  })
+                : navigate("/login", {
+                    state: { from: location },
+                    replace: true,
+                  });
             }}
           >
             <i className="far fa-heart"></i>
@@ -60,13 +63,14 @@ export const ProductCard = ({ product }) => {
           {cart.some((p) => p._id == product._id) ? (
             <button
               onClick={() => {
-                token ? (dispatch({
-                  type: "REMOVE_FROM_CART",
-                  payload: product,
-                })) : (
-                  <Navigate to='/login' state={{from: location}} replace/>
-                )
-                
+                token ? (
+                  dispatch({
+                    type: "REMOVE_FROM_CART",
+                    payload: product,
+                  })
+                ) : (
+                  <Navigate to="/login" state={{ from: location }} replace />
+                );
               }}
               className="cart normal-shadow"
             >
@@ -75,26 +79,21 @@ export const ProductCard = ({ product }) => {
           ) : (
             <button
               onClick={() => {
-                token ? (dispatch({
-                  type: "ADD_TO_CART",
-                  payload: product,
-                })
-                ) : (
-                  // <Navigate to='/login' state={{from: location}} replace/>
-                  navigate('/login' ,{
-                    state:{from:location}, replace:true})
-                )
-                
+                token
+                  ? dispatch({
+                      type: "ADD_TO_CART",
+                      payload: product,
+                    })
+                  : navigate("/login", {
+                      state: { from: location },
+                      replace: true,
+                    });
               }}
               className="cart normal-shadow"
             >
               <i className="fas fa-cart-plus"></i>Add to Cart
             </button>
           )}
-
-          {/* <button className="cart normal-shadow">
-            <i className="fas fa-cart-plus"></i>Remove From Cart
-          </button> */}
         </div>
       </div>
     </div>
