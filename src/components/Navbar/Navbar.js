@@ -1,13 +1,25 @@
 import React from 'react'
 import './Navbar.css'
 import logo from '../../assets/KITABOOK.png'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { CartState } from '../../context/Context'
 
 export const Navbar = () => {
-  const {state: {cart, wishlist},productDispatch} = CartState()
+  const navigate = useNavigate()
+  const {state: {cart, wishlist},productDispatch, authState, authDispatch, dispatch} = CartState()
+  const logoutHandler = () => {
+    navigate("/");
+    localStorage.removeItem("token");
+    localStorage.removeItem("user");
+    authDispatch({
+      type: "LOGOUT"
+    })
+    dispatch({
+      type: "EMPTY"
+    })
+  }
   return (
-      <>
+<>
     <header className="navbar">
         <div className="logo">
             <Link to="/home">
@@ -24,9 +36,12 @@ export const Navbar = () => {
           }}/>
         </div>
         <div className="nav-links">
-          <Link to='/login'>
+          {authState.token?(
+          <button className="btn btn-primary btn-login normal-shadow" onClick={logoutHandler}>Logout</button>
+        ):(<Link to='/login'>
           <button className="btn btn-primary btn-login normal-shadow">Login</button>
-        </Link>
+        </Link>)}
+          
           <div className="badge">
             <Link to="/wishlist">
             <button

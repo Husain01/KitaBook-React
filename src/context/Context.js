@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { createContext, useContext, useEffect, useReducer } from "react";
-import { cartReducer, productReducer } from "./Reducers";
+import { authReducer, cartReducer, productReducer } from "./Reducers";
 
 const CartContext = createContext();
 
@@ -18,12 +18,15 @@ const Context = ({ children }) => {
     rating:0,
     searchQuery: "",
     sliderValue: 500
-  })
+  });
+  const [authState, authDispatch] = useReducer(authReducer, {
+    user: "",
+    token: ""
+  } )
   useEffect(() => {
     (async () => {
       try {
         const res = await axios.get("api/products");
-        console.log(res);
         dispatch({
           type: "INITIALIZE_PRODUCTS",
           payload: res.data.products,
@@ -32,10 +35,16 @@ const Context = ({ children }) => {
         console.log(error);
       }
     })();
+    const checkUser = () => {
+      const token = localStorage.getItem("token");
+      const user = JSON.parse(localStorage.getItem("user"));
+      authDispatch({ type: "CHECKUSER", payload: { user, token } });
+  }
+    checkUser()
   }, []);
 
   return (
-    <CartContext.Provider value={{ state, dispatch,productState, productDispatch }}>
+    <CartContext.Provider value={{ state, dispatch,productState, productDispatch, authState, authDispatch }}>
       {children}
     </CartContext.Provider>
   );
