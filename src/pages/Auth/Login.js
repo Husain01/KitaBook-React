@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link,useLocation,useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { CartState } from "../../context/Context";
 import axios from "axios";
 
@@ -12,45 +12,50 @@ export const Login = () => {
     password: "",
   });
 
+  const guestUser = {
+    email: "adarshbalika@gmail.com",
+    password: "adarshbalika",
+  };
+  const guestUserHandler = (e) => {
+    e.preventDefault();
+    loginHandler( guestUser)
+  };
   const changeHandler = (e) => {
     const { name, value } = e.target;
     setUser({ ...user, [name]: value });
   };
 
-  const loginHandler = async (e) => {
-    e.preventDefault();
-    if(user.email !== "" && user.password !== ""){
+  const loginHandler = async ( user) => {
+    
+    if (user.email !== "" && user.password !== "") {
       try {
         const res = await axios.post("api/auth/login", user);
-        if(res.status === 200) {
-          localStorage.setItem("token", res.data.encodedToken)
-          localStorage.setItem("user", JSON.stringify(res.data.foundUser))
+        if (res.status === 200) {
+          localStorage.setItem("token", res.data.encodedToken);
+          localStorage.setItem("user", JSON.stringify(res.data.foundUser));
           authDispatch({
-            type: "LOGIN", 
+            type: "LOGIN",
             payload: {
               user: res.data.foundUser,
-              token: res.data.encodedToken 
-            }
-          })
+              token: res.data.encodedToken,
+            },
+          });
           navigate(location?.state?.from?.pathname || "/");
-        }
-        else if (res.status === 404) {
+        } else if (res.status === 404) {
           throw new Error("Email not found");
-        }
-        else if (res.status === 401) {
+        } else if (res.status === 401) {
           console.log("wrong");
           throw new Error("Wrong Password");
-        }
-        else if (res.status === 500) {
+        } else if (res.status === 500) {
           throw new Error("Server Error");
         }
       } catch (error) {
-        alert(error)
+        alert(error);
       }
     } else {
-      alert("Both the fields need to be entered")
+      alert("Both the fields need to be entered");
     }
-  }
+  };
   return (
     <main className="auth-container">
       <div className="auth-box normal-shadow">
@@ -88,7 +93,16 @@ export const Login = () => {
             </label>
             <a href="#">Forgot your password &gt;</a>
           </div>
-          <button className="btn btn-primary button-submit normal-shadow" onClick={loginHandler}>
+          <button
+            className="btn btn-primary button-submit normal-shadow"
+            onClick={guestUserHandler}
+          >
+            Add Guest Credentials
+          </button>
+          <button
+            className="btn btn-primary button-submit normal-shadow"
+            onClick={() => loginHandler(user)}
+          >
             Login
           </button>
           <Link to="/signup">Create new account &gt;</Link>
