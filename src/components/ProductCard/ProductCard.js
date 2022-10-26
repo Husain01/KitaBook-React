@@ -1,13 +1,24 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { Navigate, useLocation, useNavigate } from "react-router-dom";
 import { CartState } from "../../context/Context";
 import "./ProductCard.css";
 export const ProductCard = ({ product }) => {
   const {
-    state: { cart, wishlist },
+    state: { cart, wishlist, toastContent, toast },
     dispatch,
     authState: { token },
   } = CartState();
+
+  useEffect(() => {
+    setInterval(() => {     
+      if(!toast) {
+        dispatch({
+          type: "EMPTY_TOAST",
+        })
+      }
+    }, 4000);
+  }, [toastContent])
+
   const navigate = useNavigate();
   const location = useLocation();
   return (

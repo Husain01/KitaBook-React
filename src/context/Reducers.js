@@ -30,18 +30,28 @@ export const cartReducer = (state, action) => {
       return {
         ...state,
         wishlist: [...state.wishlist, { ...action.payload }],
+        toast: true,
+        toastContent: "Added to Wishtlist",
       };
     case "REMOVE_FROM_WISHLIST":
       return {
         ...state,
         wishlist: state.wishlist.filter((c) => c._id != action.payload._id),
+        toast: true,
+        toastContent: "Removed from Wishtlist",
       };
-      case "EMPTY":
-        return {
-          ...state,
-          cart: [],
-          wishlist: []
-        }
+    case "EMPTY":
+      return {
+        ...state,
+        cart: [],
+        wishlist: [],
+      };
+    case "EMPTY_TOAST":
+      return {
+        ...state,
+        toast: false,
+        toastContent: "",
+      };
     default:
       return state;
   }
@@ -78,35 +88,34 @@ export const productReducer = (state, action) => {
   }
 };
 
-
 export const authReducer = (state, action) => {
   switch (action.type) {
-   case "SIGNUP":
-     return {
-       ...state,
-       user: action.payload.user,
-       token: action.payload.token
-     }
-   case "LOGIN":
-     return {
-       ...state,
-       user: action.payload.user,
-       token: action.payload.token
-     }
-   case "LOGOUT":
-     return {
-       ...state,
-       user: null,
-       token: null
-     }
-     case "CHECKUSER":
-            return {
-                ...state,
-                user: action.payload.user,
-                token: action.payload.token
-            }
-  
+    case "SIGNUP":
+      return {
+        ...state,
+        user: action.payload.user,
+        token: action.payload.token,
+      };
+    case "LOGIN":
+      return {
+        ...state,
+        user: action.payload.user,
+        token: action.payload.token,
+      };
+    case "LOGOUT":
+      return {
+        ...state,
+        user: null,
+        token: null,
+      };
+    case "CHECKUSER":
+      return {
+        ...state,
+        user: action.payload.user,
+        token: action.payload.token,
+      };
+
     default:
       state;
   }
-} 
+};

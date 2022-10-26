@@ -3,10 +3,11 @@ import React from "react";
 import ProductCSS from "./Product.module.css";
 import { Filter, ProductCard } from "../../components";
 import { CartState } from "../../context/Context";
+import { Toast } from "../../components/Toast/Toast";
 
 export const Product = () => {
   const {
-    state: { products },
+    state: { products, toast },
     productState: {
       sortBy,
       rating,
@@ -78,6 +79,7 @@ export const Product = () => {
       <div className={`content-container ${ProductCSS["content-container"]}`}>
         <Filter />
         <main className={`main-content ${ProductCSS["main-content"]}`}>
+          {toast && <Toast/>}
           <div className="product-listing">
             <div className="products-header">
               <h3>Showing All Products</h3>
