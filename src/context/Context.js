@@ -1,18 +1,15 @@
 import axios from "axios";
-import React, { createContext, useContext, useEffect, useReducer, useState } from "react";
+import React, { createContext, useContext, useEffect, useReducer } from "react";
 import { authReducer, cartReducer, productReducer } from "./Reducers";
 
 const CartContext = createContext();
 
 const Context = ({ children }) => {
-  // const [toast, setToast] = useState(false)
-  
   const [state, dispatch] = useReducer(cartReducer, {
     products: [],
     cart: [],
     wishlist: [],
-    toast: false,
-    toastContent: ""
+    toastContext: [],
   });
   const [productState, productDispatch] = useReducer(productReducer, {
     sortBy: null,
@@ -56,8 +53,6 @@ const Context = ({ children }) => {
         productDispatch,
         authState,
         authDispatch,
-        // toast,
-        // setToast
       }}
     >
       {children}

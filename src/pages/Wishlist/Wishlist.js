@@ -1,4 +1,5 @@
 import React from "react";
+import { Toast } from "../../components/Toast/Toast";
 import { CartState } from "../../context/Context";
 import WishlistCSS from "./Wishlist.module.css";
 
@@ -10,6 +11,7 @@ export const Wishlist = () => {
   return (
     <div className={`"content-container" ${WishlistCSS["content-container"]}`}>
       <main className={`main-content ${WishlistCSS["main-content"]}`}>
+        <Toast />
         <h2 className={`wishlist-heading ${WishlistCSS["wishlist-heading"]}`}>
           My Wishlist
         </h2>
@@ -41,11 +43,11 @@ export const Wishlist = () => {
                         <h3 className="product-title">{prod.title}</h3>
                         <p className="product-desc">by {prod.author}</p>
                       </div>
-                        <div className="product-rating">
-                          <div className="card-badge">
-                            <i class="fas fa-star"></i> {prod.ratings}
-                          </div>
+                      <div className="product-rating">
+                        <div className="card-badge">
+                          <i class="fas fa-star"></i> {prod.ratings}
                         </div>
+                      </div>
                     </div>
 
                     <div className="btn-footer">

@@ -7,9 +7,10 @@ import { Cart, Home, Login, Product, Signup, Wishlist } from "./pages";
 import { CartState } from "./context/Context";
 import RequiresAuth from "./RequiresAuth";
 import LoggedIn from "./pages/LoggedIn/LoggedIn";
+import { Toast } from "./components/Toast/Toast";
 
 function App() {
-  const { authState } = CartState();
+  const { authState, state: {toastContext} } = CartState();
   return (
     <div className="App main-container">
       <Navbar></Navbar>

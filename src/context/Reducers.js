@@ -30,15 +30,16 @@ export const cartReducer = (state, action) => {
       return {
         ...state,
         wishlist: [...state.wishlist, { ...action.payload }],
-        toast: true,
-        toastContent: "Added to Wishtlist",
+        toastContext: [...state.toastContext,{toast: true,
+          toastContent: "Added to Wishtlist",}]
+        
       };
     case "REMOVE_FROM_WISHLIST":
       return {
         ...state,
         wishlist: state.wishlist.filter((c) => c._id != action.payload._id),
-        toast: true,
-        toastContent: "Removed from Wishtlist",
+        toastContext: [...state.toastContext,{toast: true,
+          toastContent: "Removed from Wishtlist",}]
       };
     case "EMPTY":
       return {
@@ -49,8 +50,7 @@ export const cartReducer = (state, action) => {
     case "EMPTY_TOAST":
       return {
         ...state,
-        toast: false,
-        toastContent: "",
+        toastContext: []
       };
     default:
       return state;
