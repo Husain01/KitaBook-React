@@ -1,0 +1,86 @@
+.main-content{
+  position: relative;
+  overflow: hidden;
+}
+
+.toast {
+  display: flex;
+  position: fixed;
+  gap: 0.5rem;
+  top: 9rem;
+  height: fit-content;
+  right: 0rem;
+  background-color: var(--bg-color);
+  /* border-radius: 10px 0px 0px 10px;
+  clip-path: inset(-20px 0px -20px -20px); */
+  flex-direction: row;
+  animation: toastPop 3s;
+  overflow: hidden;
+  transform: translateY(-25rem);
+  z-index: 1;
+}
+
+.toast span {
+  width: 0.2rem;
+  background-color: var(--primary-color);
+}
+
+.toast p {
+  margin-top: 0.2rem;
+}
+
+@keyframes toastPop {
+  0% {
+    transform: translateY(-25rem);
+  }
+  30% {
+    transform: translateX(0);
+    
+  }
+
+  70% {
+    transform: translateX(0);
+    
+  }
+
+  100% {
+    transform: translateY(-25rem);
+  }
+}
+
+/* 
+@keyframes toastPop {
+  from {
+    transform: translateX(100%);
+  }
+  to{
+    transform: translateX(0);
+
+  }
+} */
+
+
+/* @keyframes toastPop {
+  from {
+    transform: translateY(-25rem);
+    
+  }
+  to{
+    transform: translateX(0);
+
+  }
+} */
+
+
+@media screen and (max-width: 1400px) {
+  .toast{
+    right: 5%;
+  }
+}
+
+
+@media screen and (min-width: 1400px) {
+  .toast{
+    right:clamp(4rem, 18vw, 21rem);
+  }
+}

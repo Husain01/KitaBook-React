@@ -9,20 +9,21 @@ const Context = ({ children }) => {
     products: [],
     cart: [],
     wishlist: [],
+    toastContext: [],
   });
   const [productState, productDispatch] = useReducer(productReducer, {
     sortBy: null,
     categorySelfHelp: false,
     categoryFiction: false,
     categoryNonFiction: false,
-    rating:0,
+    rating: 0,
     searchQuery: "",
-    sliderValue: 500
+    sliderValue: 500,
   });
   const [authState, authDispatch] = useReducer(authReducer, {
     user: "",
-    token: ""
-  } )
+    token: "",
+  });
   useEffect(() => {
     (async () => {
       try {
@@ -39,12 +40,21 @@ const Context = ({ children }) => {
       const token = localStorage.getItem("token");
       const user = JSON.parse(localStorage.getItem("user"));
       authDispatch({ type: "CHECKUSER", payload: { user, token } });
-  }
-    checkUser()
+    };
+    checkUser();
   }, []);
 
   return (
-    <CartContext.Provider value={{ state, dispatch,productState, productDispatch, authState, authDispatch }}>
+    <CartContext.Provider
+      value={{
+        state,
+        dispatch,
+        productState,
+        productDispatch,
+        authState,
+        authDispatch,
+      }}
+    >
       {children}
     </CartContext.Provider>
   );

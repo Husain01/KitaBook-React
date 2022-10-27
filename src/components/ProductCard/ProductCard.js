@@ -8,6 +8,7 @@ export const ProductCard = ({ product }) => {
     dispatch,
     authState: { token },
   } = CartState();
+
   const navigate = useNavigate();
   const location = useLocation();
   return (

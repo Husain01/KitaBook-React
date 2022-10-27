@@ -1,4 +1,4 @@
-import { Navigate, Route, Routes, useNavigate } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import Mockman from "mockman-js";
 import "./App.css";
 
@@ -7,35 +7,36 @@ import { Cart, Home, Login, Product, Signup, Wishlist } from "./pages";
 import { CartState } from "./context/Context";
 import RequiresAuth from "./RequiresAuth";
 import LoggedIn from "./pages/LoggedIn/LoggedIn";
+import { Toast } from "./components/Toast/Toast";
 
 function App() {
-  const { authState } = CartState();
-  const navigate = useNavigate();
+  const { authState, state: {toastContext} } = CartState();
   return (
     <div className="App main-container">
       <Navbar></Navbar>
-
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/home" element={<Home />} />
         <Route path="/products" element={<Product />} />
-        <Route path="/wishlist" element={
-        <RequiresAuth>
-          <Wishlist />
-        </RequiresAuth>
-        } />
-        <Route path="/cart" element={
-        <RequiresAuth>
-          <Cart />
-        </RequiresAuth>
-        } />
-        {authState.token &&
-          <Route path="/login" element={<LoggedIn/>} />
-        }
-        <Route path="/login" element={
-          <Login/>
-        } />
-        <Route path="/login" element={<Login/>} />
+        <Route
+          path="/wishlist"
+          element={
+            <RequiresAuth>
+              <Wishlist />
+            </RequiresAuth>
+          }
+        />
+        <Route
+          path="/cart"
+          element={
+            <RequiresAuth>
+              <Cart />
+            </RequiresAuth>
+          }
+        />
+        {authState.token && <Route path="/login" element={<LoggedIn />} />}
+        <Route path="/login" element={<Login />} />
+        <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/mock" element={<Mockman />} />
       </Routes>
